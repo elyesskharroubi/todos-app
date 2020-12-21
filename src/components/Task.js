@@ -11,14 +11,27 @@ const Task = ({ task, id, isDone }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="taskItem" key={id} style={{backgroundColor: isDone ? '#454545' : '#262626' }}>
+    <div
+      className="taskItem"
+      key={id}
+      style={{ backgroundColor: isDone ? "#454545" : "#262626" }}
+    >
       <input
+        checked={isDone}
         type="checkbox"
-        onClick={()=>dispatch(toggleTask(id))}
+        onClick={() => dispatch(toggleTask(id))}
         style={{ gridArea: "check", alignSelf: "center", justifySelf: "end" }}
       />
 
-      <p style={{ gridArea: "task", margin: "0px", textDecoration: isDone ? 'line-through' : 'none' }}>{task}</p>
+      <p
+        style={{
+          gridArea: "task",
+          margin: "0px",
+          textDecoration: isDone ? "line-through 3px red" : "none",
+        }}
+      >
+        {task}
+      </p>
 
       <button
         style={{ gridArea: "edit", alignSelf: "center" }}
@@ -46,7 +59,7 @@ const Task = ({ task, id, isDone }) => {
             e.preventDefault();
             dispatch(editTask(id, newTask));
             setShow(false);
-            setNewTask('');
+            setNewTask("");
           }}
         >
           Save changes

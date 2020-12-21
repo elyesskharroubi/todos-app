@@ -5,6 +5,8 @@ import { addTask } from "../redux/actions";
 import { useDispatch } from "react-redux";
 
 const AddTask = () => {
+  // const taskList = useSelector((state) => state.tasks);
+
   const [newTask, setNewTask] = useState("");
   const dispatch = useDispatch();
 
@@ -27,11 +29,6 @@ const AddTask = () => {
         >
           <FontAwesomeIcon icon={faPlusSquare} />
         </button>
-        <select>
-          <option>All</option>
-          <option>Not done</option>
-          <option>Done</option>
-        </select>
       </form>
     </div>
   );
